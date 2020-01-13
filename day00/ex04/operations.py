@@ -3,14 +3,19 @@ import string
 
 
 def main(argv):
-    if (len(argv) > 2):
-        print("InputError: too many arguments")
+    if len(argv) > 2:
+        print("InputError: too many arguments\n")
+        print("Usage: python operations.py\nExample:\n\tpython operations.py 10 3")
+        return
+    elif len(argv) < 2:
+        print("Usage: python operations.py\nExample:\n\tpython operations.py 10 3")
         return
     try:
         a = int(argv[0])
         b = int(argv[1])
     except ValueError:
-        print("InputError: only numbers")
+        print("InputError: only numbers\n")
+        print("Usage: python operations.py\nExample:\n\tpython operations.py 10 3")
         return
     print("Sum:         " + str(a + b))
     print("Difference:  " + str(a - b))

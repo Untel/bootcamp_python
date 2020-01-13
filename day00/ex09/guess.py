@@ -25,7 +25,7 @@ def main(argv):
             print("Too low!")
         else:
             if num is 42:
-                print("yo")
+                print("Palu frr")
             break
     print("Congratulations, you've got it!")
     print("You won in %d attempts!" % (tries))

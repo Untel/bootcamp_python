@@ -28,6 +28,8 @@ def to_morse_word(word):
     return " ".join(list(new_word))
 
 def main(argv):
+    if len(argv) == 0
+        return
     txt = " ".join(argv).upper()
     words = re.findall(r"[\w']+", txt)
     test = "".join(words)

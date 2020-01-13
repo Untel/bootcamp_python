@@ -2,4 +2,4 @@ pip list --format=freeze | cut -d "=" -f1
 pip list
 pip show numpy
 pip search tesseract
-pip list --format=freeze > ~/in/BootcampPython/day00/ex00/requirements.txt
+pip list --format=freeze > requirements.txt
