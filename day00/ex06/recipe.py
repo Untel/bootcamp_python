@@ -36,7 +36,6 @@ def choose_recipe():
             print(idx + ": " + key)
         resp = input(">> ")
         if resp not in choices.keys():
-            resp = None
             print("This recipe does not exist, please type the corresponding number.")
             continue
         if choices[resp] is 'back':
@@ -79,15 +78,13 @@ def main(argv):
 
         if resp is '2':
             key = choose_recipe()
-            if key is None:
-                continue
-            del cookbook[key]
+            if key is not None:
+                del cookbook[key]
 
         if resp is '3':
             key = choose_recipe()
-            if key is None:
-                continue
-            print_recipe(key)
+            if key is not None:
+                print_recipe(key)
 
         if resp is '4':
             for key in cookbook.keys():
