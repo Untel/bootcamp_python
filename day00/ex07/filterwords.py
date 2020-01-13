@@ -14,8 +14,9 @@ def main(argv):
     # print("delimiters", delimiters)
     # elms = argv[0].split(delimiters)
     elms = re.findall(r"[\w']+", argv[0])
-    filtered = filter(lambda x: len(x) > int(argv[1]), elms)
-    print(list(filtered))
+    filtered = [el for el in elms if len(el) > int(argv[1])]
+    # filtered = filter(lambda x: len(x) > int(argv[1]), elms)
+    print(filtered)
 
 if __name__ == "__main__":
 	main(sys.argv[1:])

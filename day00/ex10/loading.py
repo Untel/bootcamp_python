@@ -1,10 +1,25 @@
 import sys
 import string
 import re
-from random import randint
+from time import sleep, time
 
-def main(argv):
-    return
+def ft_progress(listy):
+    m = max(listy) + 1
+    for x in listy:
+        p = (x + 1) / m
+        print("p is", p)
+        print("\rETA: xx [% 3d%%] %s" % (
+            round(p * 100),
+            (">".rjust(round(p * 100), "="))
+        ))
+        # sys.stdout.flush()
+        yield 1
 
 if __name__ == "__main__":
-	main(sys.argv[1:])
+    listy = range(1000)
+    ret = 0
+    for elem in ft_progress(listy):
+        ret += (elem + 3) % 5
+        sleep(0.01)
+    print()
+    print(ret)
