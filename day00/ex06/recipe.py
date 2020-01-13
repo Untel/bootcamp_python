@@ -46,7 +46,7 @@ def choose_recipe():
 def main(argv):
 
     resp = None
-    while (resp not in ('1', '2', '3', '4', '5')):
+    while resp not in ('1', '2', '3', '4', '5'):
         print("Please select an option by typing the corresponding number:")
         print("1: Add a recipe")
         print("2: Delete a recipe")
@@ -58,18 +58,33 @@ def main(argv):
             print("This option does not exist, please type the corresponding number.\nTo exit, enter 5.")
             continue
 
-        if resp is '1'
+        if resp is '1':
+            key = input(">> Name: ")
+            meal_type = input(">> Type: ")
+            time_prep = input(">> Time to prepare (in minutes): ")
+            while time_prep.isnumeric() == False:
+                time_prep = input(">> Please enter a numeric value: ")
+            time_prep = int(time_prep)
+            ingredients = []
+            to_add = None
+            while to_add is not "":
+                if to_add is not None:
+                    ingredients.append(to_add)
+                to_add = input(">> Add an ingredient (leave empty to finish): ")
+            cookbook[key] = {
+                'ingredients': ingredients,
+                'type': meal_type,
+                'prep_time': time_prep,
+            }
 
         if resp is '2':
             key = choose_recipe()
-            resp = None
             if key is None:
                 continue
             del cookbook[key]
 
         if resp is '3':
             key = choose_recipe()
-            resp = None
             if key is None:
                 continue
             print_recipe(key)
@@ -77,8 +92,12 @@ def main(argv):
         if resp is '4':
             for key in cookbook.keys():
                 print_recipe(key)
-        print("---")
 
+        if resp is not '5':
+            resp = None
+            print("---")
+        else:
+            print("Good bye!")
 
 if __name__ == "__main__":
 	main(sys.argv[1:])
