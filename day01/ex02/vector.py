@@ -16,6 +16,8 @@ class Vector:
     def __mul__(self, per):
         if type(per) is int or type(per) is float:
             return Vector([value * per for value in self.values])
+        elif type(per) == Vector:
+            return Vector([x * y for x, y in zip(self.values, per.values)])
         else:
             raise Exception("Cannot multiply a Vector by something else than int or float")
 
@@ -25,6 +27,8 @@ class Vector:
     def __add__(self, per):
         if type(per) is int or type(per) is float:
             return Vector([value + per for value in self.values])
+        elif type(per) == Vector:
+            return Vector([x + y for x, y in zip(self.values, per.values)])
         else:
             raise Exception("Cannot add a Vector by something else than int or float")
 
@@ -34,6 +38,8 @@ class Vector:
     def __sub__(self, per):
         if type(per) is int or type(per) is float:
             return Vector([value - per for value in self.values])
+        elif type(per) == Vector:
+            return Vector([x - y for x, y in zip(self.values, per.values)])
         else:
             raise Exception("Cannot sub a Vector by something else than int or float")
 
@@ -43,6 +49,8 @@ class Vector:
     def __truediv__(self, per):
         if type(per) is int or type(per) is float:
             return Vector([value / per for value in self.values])
+        elif type(per) == Vector:
+            return Vector([x / y for x, y in zip(self.values, per.values)])
         else:
             raise Exception("Cannot multiply a Vector by something else than int or float")
 
