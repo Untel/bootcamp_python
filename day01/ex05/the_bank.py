@@ -4,11 +4,18 @@ class Account(object):
         self.id = self.ID_COUNT
         self.name = name
         self.__dict__.update(kwargs)
+        print(self.__dict__)
         if hasattr(self, 'value'):
             self.value = 0
             Account.ID_COUNT += 1
     def transfer(self, amount):
         self.value += amount
+
+    def __str__(self):
+        txt = "Acc " + self.name + "\n"
+        if hasattr(self, 'value'):
+            txt += "Value: " + str(self.value) + "\n\n"
+        return txt
 
 class Bank(object):
     """The bank"""
@@ -33,4 +40,11 @@ class Bank(object):
 
 # Testcase
 bank = Bank()
-a = Account()
+a = Account("A", value = 1000)
+b = Account("B", value = 1000)
+bank.add(a)
+bank.add(b)
+a.transfer(5000)
+b.transfer(4000)
+for acc in bank.account:
+    print(acc.__dict__)
