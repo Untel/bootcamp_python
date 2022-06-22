@@ -6,7 +6,7 @@ conda==4.7.12
 conda-package-handling==1.6.0
 cryptography==2.8
 idna==2.8
-numpy==1.18.1
+numpy==1.22.0
 pip==19.3.1
 pycosat==0.6.3
 pycparser==2.19
